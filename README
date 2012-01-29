@@ -1,6 +1,6 @@
 Installation:
 
-    git clone git@github.com:nicowe/janusvim.git ~/.janus
+    git clone git@github.com:nicowe/janus_vim.git ~/.janus
 
 Create symlinks:
 
