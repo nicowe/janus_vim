@@ -1,0 +1,39 @@
+"Map Esc Key to jk and kj, when in insert mode
+inoremap jk <esc>
+inoremap kj <esc>
+
+set rnu         "Relative Line numbers
+set showcmd     "Display incomplete commands in the bottom right
+
+" remap of unimpaired features
+" Bubble single lines
+nmap <C-k> [e
+nmap <C-j> ]e
+" Bubble multiple lines
+vmap <C-k> [egv
+vmap <C-j> ]egv
+
+
+"Colorschemes
+" colorscheme blackboard
+
+
+" LEADER MAPPINGS
+nmap <leader>v :tabedit ~/.vimrc.after<CR>
+" Use the same symbols as TextMate for tabstops and EOLs
+set listchars=tab:▸\ ,eol:¬
+" toggle display of tabs
+nmap <leader>l :set list!<CR>
+
+map <leader>n :NERDTree<CR>
+
+" Toggle spell checking on and off
+nmap <silent> <leader>s :set spell!<CR>
+set spelllang=en_gb
+
+" Source the vimrc.after file after saving it
+if has("autocmd")
+  autocmd bufwritepost .vimrc.after source ~/.vimrc.after
+endif
+
+colorscheme blackboard

@@ -1,0 +1,17 @@
+Installation:
+
+    git clone git@github.com:nicowe/janusvim.git ~/.janus
+
+Create symlinks:
+
+    ln -s ~/.janus/vimrc.after ~/.vimrc.after
+    ln -s ~/.janus/vimrc.before ~/.vimrc.before
+
+Switch to the `~/.janus` directory, and fetch submodules:
+
+    cd ~/.janus
+    git submodule init
+    git submodule update
+
+To enable octave change matlab to octave in the filetype.vim 
+in the /Application/MacVim/Contents/Resources/vim folder
