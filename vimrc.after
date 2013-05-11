@@ -4,6 +4,7 @@ inoremap kj <esc>
 
 set rnu         "Relative Line numbers
 set showcmd     "Display incomplete commands in the bottom right
+set autoindent
 
 " remap of unimpaired features
 " Bubble single lines
@@ -13,19 +14,23 @@ nmap <C-j> ]e
 vmap <C-k> [egv
 vmap <C-j> ]egv
 
-
-"Colorschemes
-" colorscheme blackboard
-
-
 " LEADER MAPPINGS
 nmap <leader>v :tabedit ~/.vimrc.after<CR>
 " Use the same symbols as TextMate for tabstops and EOLs
 set listchars=tab:▸\ ,eol:¬
 " toggle display of tabs
 nmap <leader>l :set list!<CR>
+map <leader>n :NERDTreeToggle<CR>
+"map <leader>n :NERDTree<CR>
 
-map <leader>n :NERDTree<CR>
+" Removes trailing spaces
+function TrimWhiteSpace()
+  %s/\s*$//
+  ''
+:endfunction
+
+map <F2> :call TrimWhiteSpace()<CR>
+map! <F2> :call TrimWhiteSpace()<CR>
 
 " Toggle spell checking on and off
 nmap <silent> <leader>s :set spell!<CR>
@@ -36,4 +41,12 @@ if has("autocmd")
   autocmd bufwritepost .vimrc.after source ~/.vimrc.after
 endif
 
+set cmdheight=2 "reduces the number of hit enter or continue prompts
+"nmap <F10> :w<CR>:!ruby %<CR>
+nmap <F9> :w<CR>:! python %<CR>
+
+" VISUAL
 colorscheme blackboard
+set transparency=5
+set guioptions=aAce " no scrollbars
+set guifont=Monaco:h13
