@@ -23,14 +23,33 @@ nmap <leader>l :set list!<CR>
 map <leader>n :NERDTreeToggle<CR>
 "map <leader>n :NERDTree<CR>
 
-" Removes trailing spaces
-function TrimWhiteSpace()
-  %s/\s*$//
-  ''
-:endfunction
+"Window management
+map <leader>ww <C-w>w
+map <leader>wv <C-w>v
+map <leader>ws <C-w>s
+map <leader>wj <C-w>j
+map <leader>wl <C-w>l
+map <leader>wh <C-w>h
 
-map <F2> :call TrimWhiteSpace()<CR>
-map! <F2> :call TrimWhiteSpace()<CR>
+nmap <Left> :bp<CR>
+nmap <Right> :bn<CR>
+
+" Strip trailing whitespaces on each save
+fun! <SID>StripTrailingWhitespaces()
+    let l = line(".")
+    let c = col(".")
+    %s/\s\+$//e
+    call cursor(l, c)
+endfun
+autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
+ "Removes trailing spaces
+"function TrimWhiteSpace()
+  "%s/\s*$//
+  "''
+":endfunction
+
+"map <F2> :call TrimWhiteSpace()<CR>
+"map! <F2> :call TrimWhiteSpace()<CR>
 
 " Toggle spell checking on and off
 nmap <silent> <leader>s :set spell!<CR>
@@ -41,7 +60,6 @@ if has("autocmd")
   autocmd bufwritepost .vimrc.after source ~/.vimrc.after
 endif
 
-set cmdheight=2 "reduces the number of hit enter or continue prompts
 "nmap <F10> :w<CR>:!ruby %<CR>
 nmap <F9> :w<CR>:! python %<CR>
 
