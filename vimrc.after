@@ -2,7 +2,7 @@
 inoremap jk <esc>
 inoremap kj <esc>
 
-set rnu         "Relative Line numbers
+"set rnu         "Relative Line numbers
 set showcmd     "Display incomplete commands in the bottom right
 set autoindent
 
