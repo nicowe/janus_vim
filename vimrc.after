@@ -5,6 +5,12 @@ inoremap kj <esc>
 set showcmd     "Display incomplete commands in the bottom right
 set autoindent
 
+"YouCompleteMe basis file
+let g:ycm_global_ycm_extra_conf = '~/.janus/settings/YouCompleteMe/.ycm_extra_conf.py'
+nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
+" Disable supertab as YouCompleteMe should have better functionality
+call janus#disable_plugin('supertab')"
+
 " remap of unimpaired features
 " Bubble single lines
 nmap <C-k> [e

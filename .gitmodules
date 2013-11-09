@@ -2,3 +2,7 @@
 	path = vim-virtualenv
 	url = https://github.com/jmcantrell/vim-virtualenv.git
   ignore = dirty
+[submodule "YouCompleteMe"]
+	path = YouCompleteMe
+	url = https://github.com/Valloric/YouCompleteMe.git
+  ignore = dirty
