@@ -2,7 +2,6 @@
 inoremap jk <esc>
 inoremap kj <esc>
 
-"set rnu         "Relative Line numbers
 set showcmd     "Display incomplete commands in the bottom right
 set autoindent
 
@@ -55,14 +54,12 @@ autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
 nmap <silent> <leader>s :set spell!<CR>
 set spelllang=en_gb
 
-" Source the vimrc.after file after saving it
+" Source the vimrc.after file and filetype plugin files after saving it
 if has("autocmd")
   autocmd bufwritepost .vimrc.after source ~/.vimrc.after
+  autocmd bufwritepost cpp.vim source ~/.janus/settings/syntax/cpp.vim
+  autocmd bufwritepost python.vim source ~/.janus/settings/syntax/cpp.vim
 endif
-
-"nmap <F10> :w<CR>:!ruby %<CR>
-nmap <F10> :w<CR>:! g++ %<CR>:! ./a.out<CR>
-nmap <F9> :w<CR>:! python %<CR>
 
 " VISUAL
 colorscheme blackboard
