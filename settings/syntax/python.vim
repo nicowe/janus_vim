@@ -1,1 +1,1 @@
-nmap <F9> :w<CR>:! python %<CR>
+nmap <F10> :w<CR>:! python %<CR>
